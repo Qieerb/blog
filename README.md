@@ -6,6 +6,25 @@ You can use the [editor on GitHub](https://github.com/Qieerb/testpage/edit/maste
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
+### Test Area
+Here is a footnote reference,[1] and another.[2]
+
+This paragraph won’t be part of the note, because it isn’t indented.
+
+1.  Here is the footnote.
+
+2.  Here’s one with multiple blocks.
+    
+    Subsequent paragraphs are indented to show that they belong to the
+    previous footnote.
+    
+        { some.code }
+    
+    The whole paragraph can be indented, or just the first line. In this
+    way, multi-paragraph footnotes work like multi-paragraph list items.
+
+
+
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for

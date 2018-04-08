@@ -1,4 +1,7 @@
-Main page
+title: Main page
+layout: withheader
 
-[ReadMe](README)
-The above link should link to the page nicely?
+Welcome! Sorry but there isn't much to see here, most of it is still under construction.
+
+# Posts
+[First post](first_post)

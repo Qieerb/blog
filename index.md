@@ -1,4 +1,4 @@
 Main page
 
-[ReadMe](README.md)
+[ReadMe](README)
 The above link should link to the page nicely?

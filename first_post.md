@@ -26,7 +26,7 @@ This is the first post. It has a different layout compared to the main page.
             m = t.getMinutes(),
             s = t.getSeconds(),
             l = t.getMilliseconds(),
-            dt = (3600*h + 60*m + s + l/1000)/864*1000,
+            dt = (3600*h + 60*m + s + l/1000)/0.864,
             st = dt.toFixed(0),
             dh = st.slice(0,-4),
             dm = st.slice(-4,-2),

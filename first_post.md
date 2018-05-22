@@ -14,9 +14,14 @@ Decimal time:
 <div id="dtimer"></div>
 
 <script type="text/javascript">
-
+	
     function zeroPad(s) {
-        return (s.length == 1) ? '0' + s : s;
+        if (isNaN(s)) {
+            return (s.length == 1) ? '0' + s : s;
+        }
+        else {
+            return (s < 10) ? '0' + s : s;
+        }
     }
 
     function startTime() {

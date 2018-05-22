@@ -5,26 +5,36 @@ layout: default
 
 This is the first post. It has a different layout compared to the main page.
 
-A timer:
+Current time:
 
 <div id="time"></div>
 
+Decimal time:
+
+<div id="dtime"></div>
+
 <script type="text/javascript">
-(function () {
-    function checkTime(i) {
-        return (i < 10) ? "0" + i : i;
+
+    function zeroPad(s) {
+        return (s.length == 1) ? '0' + s : s;
     }
 
     function startTime() {
-        var today = new Date(),
-            h = checkTime(today.getHours()),
-            m = checkTime(today.getMinutes()),
-            s = checkTime(today.getSeconds());
-        document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
-        t = setTimeout(function () {
-            startTime()
-        }, 500);
+        var t = new Date(),
+            h = t.getHours(),
+            m = t.getMinutes(),
+            s = t.getSeconds(),
+            l = t.getMilliseconds(),
+            dt = (3600*h + 60*m + s + l/1000)/864*1000,
+            st = dt.toFixed(0)
+            dh = st.slice(0,-4),
+            dm = st.slice(-4,-2),
+            ds = st.slice(-2);
+        document.getElementById('timer').innerHTML = zeroPad(h)+":"+zeroPad(m)+":"+zeroPad(s);
+        document.getElementById('dtimer').innerHTML = zeroPad(dh)+":"+dm+":"+ds;
+        setTimeout(startTime, 50);
     }
+    
     startTime();
-})();
+
 </script>

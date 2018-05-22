@@ -7,11 +7,11 @@ This is the first post. It has a different layout compared to the main page.
 
 Current time:
 
-<div id="time"></div>
+<div id="timer"></div>
 
 Decimal time:
 
-<div id="dtime"></div>
+<div id="dtimer"></div>
 
 <script type="text/javascript">
 

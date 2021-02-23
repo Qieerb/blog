@@ -1,6 +1,6 @@
 ---
 title: Clocks
-layout: default
+layout: post
 ---
 
 A collection of silly clocks

@@ -1,9 +1,10 @@
 ---
 title: Home
-layout: withheader
+layout: home
 ---
 
 Welcome! You've found the best website on the internet!
+
 (According to me at least)
 
 # Posts

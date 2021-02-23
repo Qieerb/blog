@@ -26,7 +26,7 @@ url: "https://merelylogical.github.io/blog/" # the base hostname & protocol for 
 github_username: MerelyLogical
 
 # Build settings
-theme: minima
+theme: jekyll-theme-cayman
 
 collections:
   pages:

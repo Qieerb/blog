@@ -1,9 +1,11 @@
 ---
-title: Main page
+title: Home
 layout: withheader
 ---
 
-Welcome! Sorry but there isn't much to see here, most of it is still under construction.
+Welcome! You've found the best website on the internet!
+(According to me at least)
 
 # Posts
-[First post](first_post)
+
+[Clocks](clocks)

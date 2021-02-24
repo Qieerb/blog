@@ -3,10 +3,13 @@ title: Home
 layout: home
 ---
 
-Welcome! You've found the best website on the internet!
+<strong>Welcome! You've found the best website on the internet!</strong>
+<em>(According to me at least)</em>
 
-(According to me at least)
+<hr>
 
 # Posts
+
+<hr>
 
 [Clocks](clocks)

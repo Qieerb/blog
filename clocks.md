@@ -3,13 +3,24 @@ title: Clocks
 layout: post
 ---
 
-A collection of silly clocks
+<strong>A collection of silly clocks, see if you can figure out how each works :))</strong>
 
-<div id="timer"></div>
+### 24-hour time
 
-<div id="dtimer"></div>
+* <span id="timer"></span>
 
-<div id="rtimer"></div>
+### Decimal time
+
+* <span id="dtimer"></span>
+
+### Roman time
+
+* <span id="rtimer"></span>
+
+### Roman decimal time
+
+* <span id="rdtimer"></span>
+
 
 <script type="text/javascript">
 
@@ -24,14 +35,22 @@ A collection of silly clocks
     }
 
     // only need to work for [0,2359]
-    function toRoman(hhmm) {
-        var lut = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1},
+    function toRoman(dt) {
+        var lut = {M:1000, CM:900,
+                   D:500,  CD:400,
+                   C:100,  XC:90,
+                   L:50,   XL:40,
+                   X:10,   IX:9,
+                   V:5,    IV:4,
+                   I:1,    S:0.5,
+                   "·":1/12},
+            dtm = dt,
             r = '',
             i;
         for (i in lut) {
-            while (hhmm >= lut[i]) {
+            while (dtm >= lut[i]) {
                 r += i;
-                hhmm -= lut[i];
+                dtm -= lut[i];
             }
         }
         return r;
@@ -43,18 +62,24 @@ A collection of silly clocks
             m = t.getMinutes(),
             s = t.getSeconds(),
             l = t.getMilliseconds(),
+            // normal 24-hour time in seconds
+            nt = (3600*h + 60*m + s + l/1000),
             // 86400 seconds in a 24-hour day, 100000 seconds in a decimal day
-            dt = (3600*h + 60*m + s + l/1000)/0.864,
+            // decimal time
+            dt = nt/0.864,
             st = dt.toFixed(0),
             dh = st.slice(0,-4),
             dm = st.slice(-4,-2),
             ds = st.slice(-2),
-            // convert hhmm to roman numeral
-            rt = toRoman(100*h + m);
+            // convert nt to roman numeral
+            rt = toRoman(100*h + m + s/60 + l/60000),
+            // roman decimal time??
+            rdt = toRoman(dt/100);
 
-        document.getElementById( 'timer').innerHTML = 'Current time: ' + zeroPad(h) + ":" + zeroPad(m) + ":" + zeroPad(s);
-        document.getElementById('dtimer').innerHTML = 'Decimal time: ' + zeroPad(dh) + ":" + dm + ":" + ds;
-        document.getElementById('rtimer').innerHTML = 'Roman numeral time: ' + rt;
+        document.getElementById(  'timer').innerHTML = zeroPad(h) + ":" + zeroPad(m) + ":" + zeroPad(s);
+        document.getElementById( 'dtimer').innerHTML = zeroPad(dh) + ":" + dm + ":" + ds;
+        document.getElementById( 'rtimer').innerHTML = rt;
+        document.getElementById('rdtimer').innerHTML = rdt;
         setTimeout(startTime, 50);
     }
 

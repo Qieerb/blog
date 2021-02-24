@@ -3,21 +3,21 @@ title: Clocks
 layout: post
 ---
 
-<strong>A collection of silly clocks, see if you can figure out how each works :))</strong>
+<strong>A collection of uncommon time formats, see if you can figure out how each works :))</strong>
 
 ### 24-hour time
 
 * <span id="timer"></span>
 
-### Decimal time
+### A
 
 * <span id="dtimer"></span>
 
-### Roman time
+### B
 
 * <span id="rtimer"></span>
 
-### Roman decimal time
+### C
 
 * <span id="rdtimer"></span>
 

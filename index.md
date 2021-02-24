@@ -12,4 +12,4 @@ layout: home
 
 <hr>
 
-[Clocks](clocks)
+[Clocks](pages/clocks)

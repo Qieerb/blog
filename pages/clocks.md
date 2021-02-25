@@ -25,13 +25,7 @@ layout: post
 <script type="text/javascript">
 
     function zeroPad(s) {
-        if (isNaN(s)) {
-            // works even if s is string??? wtf was i thinking?
-            return (s.length == 1) ? '0' + s : s;
-        }
-        else {
-            return (s < 10) ? '0' + s : s;
-        }
+        return String(s).padStart(2,'0');
     }
 
     // only need to work for [0,2359]

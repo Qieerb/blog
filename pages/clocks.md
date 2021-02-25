@@ -76,8 +76,8 @@ layout: post
             // roman decimal time??
             rdt = toRoman(dt/100);
 
-        document.getElementById(  'timer').innerHTML = zeroPad(h) + ":" + zeroPad(m) + ":" + zeroPad(s);
-        document.getElementById( 'dtimer').innerHTML = zeroPad(dh) + ":" + dm + ":" + ds;
+        document.getElementById(  'timer').innerHTML = zeroPad(h)  + ":" + zeroPad(m)  + ":" + zeroPad(s);
+        document.getElementById( 'dtimer').innerHTML = zeroPad(dh) + ":" + zeroPad(dm) + ":" + zeroPad(ds);
         document.getElementById( 'rtimer').innerHTML = rt;
         document.getElementById('rdtimer').innerHTML = rdt;
         setTimeout(startTime, 50);

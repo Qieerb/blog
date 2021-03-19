@@ -47,7 +47,7 @@ function toEdo(today){
         nightlut = ['暮れ六つ', '六つ半', '宵五つ', '五つ半', '夜四つ', '四つ半', '真夜九つ', '九つ半', '夜八つ', '八つ半', '暁七つ', '七つ半'],
         // use location of Kyoto to avoid asking for location
         // TODO: date in Kyoto might be different from local date
-        // TODO: move Kyoto back to Japan (35.0, 135.7)
+        // TODO: move Kyoto back to Japan (35.02, 135.76, 47)
         times = SunCalc.getTimes(today, 35.0, 0.7, 47),
         dawn = times.dawn,
         dusk = times.dusk;
@@ -114,9 +114,6 @@ function toPeriodic(hhmmss){
 // 🐓 🐔 酉 とり
 // 🐕 🐶 戌 いぬ
 // 🐖 🐗 亥 い
-// ↖
-// ⬅
-// ↙
 
 //🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛🕜🕝🕞🕟🕠🕡🕢🕣🕤🕥🕦🕧
 

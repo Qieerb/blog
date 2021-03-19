@@ -1,4 +1,5 @@
 .bundle/
 _site/
 vendor/
-favicon.ico:Zone.Identifier
+*:Zone.Identifier
+*.pdf

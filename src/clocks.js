@@ -150,7 +150,7 @@ function startTime() {
     document.getElementById( 'ztimer').innerHTML = zt;
     document.getElementById( 'etimer').innerHTML = et;
     document.getElementById( 'ptimer').innerHTML = pt;
-    setTimeout(startTime, 5000);
+    setTimeout(startTime, 50);
 }
 
 startTime();

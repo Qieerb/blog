@@ -37,6 +37,6 @@ layout: post
 
 * <span style="font-size:xx-large">🕐</span> -->
 
-<script type="text/javascript" src="../suncalc/suncalc.js"></script>
+<script type="text/javascript" src="../src/suncalc/suncalc.js"></script>
 
-<script type="text/javascript" src="clocks.js"></script>
+<script type="text/javascript" src="../src/clocks.js"></script>

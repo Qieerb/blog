@@ -54,6 +54,7 @@ function toZodiac(m){
 }
 
 // input is Date and form
+// TODO: stop calculating dawn/dusk time every tick
 function toEdo(today, form='j'){
     if (form === 'j'){
         var daylut   = ['明け六つ', '六つ半', '朝五つ', '五つ半', '昼四つ', '四つ半', '真昼九つ', '九つ半', '昼八つ', '八つ半', '夕七つ', '七つ半'],

@@ -36,7 +36,8 @@ function toZodiac(m){
     var zlut = ['🐁', '🐂', '🐅', '🐇', '🐉', '🐍', '🐎', '🐑', '🐒', '🐓', '🐕', '🐖', '🐁'],
         alut = '↑·↓',
         zm = (m+60) / 120,
-        zk = zm / 40;
+        zk = zm * 3;
+        console.log(zk);
     return zlut[Math.floor(zm)] + alut[Math.floor(zk)];
 }
 

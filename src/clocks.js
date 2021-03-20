@@ -37,7 +37,6 @@ function toZodiac(m){
         alut = '↑·↓',
         zm = (m+60) / 120,
         zk = (zm%1) * 3;
-        console.log(zk);
     return zlut[Math.floor(zm)] + alut[Math.floor(zk)];
 }
 

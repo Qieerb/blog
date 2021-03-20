@@ -8,7 +8,7 @@ layout: home
 
 <hr>
 
-# Posts
+### Posts
 
 <hr>
 

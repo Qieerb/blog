@@ -64,7 +64,7 @@ function toEdo(today, form='j'){
     } else {
         return "unrecognised form";
     }
-        // use lat, lng and height of Kyoto (35.02N, 135.76E, 47m) to avoid asking for location
+        // use lat, lng and height of Kyōto (35.02N, 135.76E, 47m) to avoid asking for location
     var fakeLng = today.getTimezoneOffset()/60 * (-15) + 0.76,
         times = SunCalc.getTimes(today, 35.02, fakeLng, 47),
         dawn = times.dawn,

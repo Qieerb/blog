@@ -40,21 +40,20 @@ function toZodiac(m){
     return zlut[Math.floor(zm)] + alut[Math.floor(zk)];
 }
 
-// input is in minutes
+// input is Date
 function toEdo(today){
         // TODO: add romaji support for wider audience?
     var daylut   = ['明け六つ', '六つ半', '朝五つ', '五つ半', '昼四つ', '四つ半', '真昼九つ', '九つ半', '昼八つ', '八つ半', '夕七つ', '七つ半'],
         nightlut = ['暮れ六つ', '六つ半', '宵五つ', '五つ半', '夜四つ', '四つ半', '真夜九つ', '九つ半', '夜八つ', '八つ半', '暁七つ', '七つ半'],
-        // use location of Kyoto to avoid asking for location
-        // TODO: date in Kyoto might be different from local date
-        // TODO: move Kyoto back to Japan (35.02, 135.76, 47)
-        times = SunCalc.getTimes(today, 35.0, 0.7, 47),
+        // use latitude and height of Kyoto to avoid asking for location
+        fakeLng = today.getTimezoneOffset()/60 * (-15) + 0.76,
+        times = SunCalc.getTimes(today, 35.02, fakeLng, 47),
         dawn = times.dawn,
         dusk = times.dusk;
     if (today < dawn){
         var ytd = new Date();
         ytd.setDate(today.getDate() - 1);
-        var timesYtd = SunCalc.getTimes(ytd, 35.0, 0.7, 47),
+        var timesYtd = SunCalc.getTimes(ytd, 35.02, fakeLng, 47),
             duskYtd = timesYtd.dusk,
             hourLength = (dawn - duskYtd)/12,
             hoursSinceDusk = (today - duskYtd)/hourLength;
@@ -66,7 +65,7 @@ function toEdo(today){
     } else {
         var tmr = new Date();
         tmr.setDate(today.getDate() + 1);
-        var timesTmr = SunCalc.getTimes(tmr, 35.0, 0.7, 47),
+        var timesTmr = SunCalc.getTimes(tmr, 35.02, fakeLng, 47),
             dawnTmr = timesTmr.dawn,
             hourLength = (dawnTmr - dusk)/12,
             hoursSinceDusk = (today - dusk)/hourLength;
@@ -124,7 +123,7 @@ function startTime() {
         s = t.getSeconds(),
         l = t.getMilliseconds(),
         // normal 24-hour time in seconds
-        nt = (3600*h + 60*m + s + l/1000),
+        nt = (msSinceMidnight(t)/1000),
         // 86400 seconds in a 24-hour day, 100000 seconds in a decimal day
         // decimal time
         dt = nt/0.864,

@@ -32,6 +32,19 @@ function toRoman(hhmm) {
 }
 
 // input is in minutes
+// CN  JP
+// 🐁 🐭 子 ね
+// 🐂 🐮 丑 うし
+// 🐅 🐯 寅 とら
+// 🐇 🐰 卯 う
+// 🐉 🐲 辰 たつ
+// 🐍 🐍 巳 み
+// 🐎 🐴 午 うま
+// 🐑 🐏 未 ひつじ
+// 🐒 🐵 申 さる
+// 🐓 🐔 酉 とり
+// 🐕 🐶 戌 いぬ
+// 🐖 🐗 亥 い
 function toZodiac(m){
     var zlut = ['🐁', '🐂', '🐅', '🐇', '🐉', '🐍', '🐎', '🐑', '🐒', '🐓', '🐕', '🐖', '🐁'],
         alut = '↑·↓',
@@ -40,13 +53,19 @@ function toZodiac(m){
     return zlut[Math.floor(zm)] + alut[Math.floor(zk)];
 }
 
-// input is Date
-function toEdo(today){
-        // TODO: add romaji support for wider audience?
-    var daylut   = ['明け六つ', '六つ半', '朝五つ', '五つ半', '昼四つ', '四つ半', '真昼九つ', '九つ半', '昼八つ', '八つ半', '夕七つ', '七つ半'],
-        nightlut = ['暮れ六つ', '六つ半', '宵五つ', '五つ半', '夜四つ', '四つ半', '真夜九つ', '九つ半', '夜八つ', '八つ半', '暁七つ', '七つ半'],
-        // use latitude and height of Kyoto to avoid asking for location
-        fakeLng = today.getTimezoneOffset()/60 * (-15) + 0.76,
+// input is Date and form
+function toEdo(today, form='j'){
+    if (form == 'j'){
+        var daylut   = ['明け六つ', '六つ半', '朝五つ', '五つ半', '昼四つ', '四つ半', '真昼九つ', '九つ半', '昼八つ', '八つ半', '夕七つ', '七つ半'],
+            nightlut = ['暮れ六つ', '六つ半', '宵五つ', '五つ半', '夜四つ', '四つ半', '真夜九つ', '九つ半', '夜八つ', '八つ半', '暁七つ', '七つ半'];
+    } else if (form == 'r'){
+        var daylut   = ['ake-6',  '6.5', 'asa-5', '5.5', 'hiru-4', '4.5', 'mahiru-9', '9.5', 'hiru-8', '8.5', 'yū-7',       '7.5'],
+            nightlut = ['kure-6', '6.5', 'yoi-5', '5.5', 'yoru-4', '4.5', 'mayo-9',   '9.5', 'yoru-8', '8.5', 'akatsuki-7', '7.5'];
+    } else {
+        return "unrecognised form";
+    }
+        // use lat, lng and height of Kyoto (35.02N, 135.76E, 47m) to avoid asking for location
+    var fakeLng = today.getTimezoneOffset()/60 * (-15) + 0.76,
         times = SunCalc.getTimes(today, 35.02, fakeLng, 47),
         dawn = times.dawn,
         dusk = times.dusk;
@@ -86,33 +105,6 @@ function toPeriodic(hhmmss){
     return p.replace('nnn', 'nn').replace('ii','i');
 }
 
-// notes for 12shi lets do emojis omg
-// mayo-9     真夜九つ
-// yoru-8     夜八つ
-// akatsuki-7 暁七つ
-// ake-6      明け六つ // daybreak, start of twillight
-// asa-5      朝五つ
-// hiru-4     昼四つ
-// mahiru-9   真昼九つ
-// hiru-8     昼八つ
-// yuu-7      夕七つ
-// kure-6     暮れ六つ // sunset, end of twillight
-// yoi-5      宵五つ
-// yoru-4     夜四つ
-
-// CN  JP
-// 🐁 🐭 子 ね
-// 🐂 🐮 丑 うし
-// 🐅 🐯 寅 とら
-// 🐇 🐰 卯 う
-// 🐉 🐲 辰 たつ
-// 🐍 🐍 巳 み
-// 🐎 🐴 午 うま
-// 🐑 🐏 未 ひつじ
-// 🐒 🐵 申 さる
-// 🐓 🐔 酉 とり
-// 🐕 🐶 戌 いぬ
-// 🐖 🐗 亥 い
 
 //🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛🕜🕝🕞🕟🕠🕡🕢🕣🕤🕥🕦🕧
 
@@ -123,7 +115,7 @@ function startTime() {
         s = t.getSeconds(),
         l = t.getMilliseconds(),
         // normal 24-hour time in seconds
-        nt = (msSinceMidnight(t)/1000),
+        nt = msSinceMidnight(t)/1000,
         // 86400 seconds in a 24-hour day, 100000 seconds in a decimal day
         // decimal time
         dt = nt/0.864,
@@ -132,13 +124,14 @@ function startTime() {
         dm = st.slice(-4,-2),
         ds = st.slice(-2),
         // convert nt to roman numeral
-        rt = toRoman(100*h + m + s/60 + l/60000),
+        rt = toRoman(100*h + m + s/100 + l/100000),
         // roman decimal time??
         rdt = toRoman(dt/100),
         // zodiac time
         zt = toZodiac(nt/60),
         // edo time
         et = toEdo(t),
+        ret = toEdo(t, 'r');
         // periodic (systematic element name) time
         pt = toPeriodic(h.toString() + m.toString() + s.toString());
 
@@ -148,6 +141,7 @@ function startTime() {
     document.getElementById('rdtimer').innerHTML = rdt;
     document.getElementById( 'ztimer').innerHTML = zt;
     document.getElementById( 'etimer').innerHTML = et;
+    document.getElementById('retimer').innerHTML = ret;
     document.getElementById( 'ptimer').innerHTML = pt;
     setTimeout(startTime, 50);
 }

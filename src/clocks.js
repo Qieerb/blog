@@ -55,10 +55,10 @@ function toZodiac(m){
 
 // input is Date and form
 function toEdo(today, form='j'){
-    if (form == 'j'){
+    if (form === 'j'){
         var daylut   = ['明け六つ', '六つ半', '朝五つ', '五つ半', '昼四つ', '四つ半', '真昼九つ', '九つ半', '昼八つ', '八つ半', '夕七つ', '七つ半'],
             nightlut = ['暮れ六つ', '六つ半', '宵五つ', '五つ半', '夜四つ', '四つ半', '真夜九つ', '九つ半', '夜八つ', '八つ半', '暁七つ', '七つ半'];
-    } else if (form == 'r'){
+    } else if (form === 'r'){
         var daylut   = ['ake-6',  '6.5', 'asa-5', '5.5', 'hiru-4', '4.5', 'mahiru-9', '9.5', 'hiru-8', '8.5', 'yū-7',       '7.5'],
             nightlut = ['kure-6', '6.5', 'yoi-5', '5.5', 'yoru-4', '4.5', 'mayo-9',   '9.5', 'yoru-8', '8.5', 'akatsuki-7', '7.5'];
     } else {
@@ -108,9 +108,26 @@ function toPeriodic(hhmmss){
 
 //🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛🕜🕝🕞🕟🕠🕡🕢🕣🕤🕥🕦🕧
 
+// TODO: make this into a toggle system
+function show(id) {
+    document.getElementById(id).style.display = "block";
+}
+
+function hide(id) {
+    document.getElementById(id).style.display = "none";
+}
+
 function startTime() {
-    var t = new Date(),
-        h = t.getHours(),
+    var debug = document.getElementById("timeTravel").checked,
+        t = new Date();
+    if (debug) {
+        show('timeForm');
+        t.setHours  (document.getElementById("h").value);
+        t.setMinutes(document.getElementById("m").value);
+        t.setSeconds(document.getElementById("s").value);
+        t.setMilliseconds(0);
+    }
+    var h = t.getHours(),
         m = t.getMinutes(),
         s = t.getSeconds(),
         l = t.getMilliseconds(),
@@ -143,7 +160,9 @@ function startTime() {
     document.getElementById( 'etimer').innerHTML = et;
     document.getElementById('retimer').innerHTML = ret;
     document.getElementById( 'ptimer').innerHTML = pt;
-    setTimeout(startTime, 50);
-}
+    if (!debug){
+        hide('timeForm');
+        setTimeout(startTime, 50);
+    }
 
-startTime();
+}

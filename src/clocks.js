@@ -55,7 +55,7 @@ function toZodiac(m){
 
 // input is Date and form
 // TODO: stop calculating dawn/dusk time every tick
-function toEdo(today, form='j'){
+function toEdo(today, form){
     if (form === 'j'){
         var daylut   = ['明け六つ', '六つ半', '朝五つ', '五つ半', '昼四つ', '四つ半', '真昼九つ', '九つ半', '昼八つ', '八つ半', '夕七つ', '七つ半'],
             nightlut = ['暮れ六つ', '六つ半', '宵五つ', '五つ半', '夜四つ', '四つ半', '真夜九つ', '九つ半', '夜八つ', '八つ半', '暁七つ', '七つ半'];
@@ -148,8 +148,8 @@ function startTime() {
         // zodiac time
         zt = toZodiac(nt/60),
         // edo time
-        et = toEdo(t),
-        ret = toEdo(t, 'r');
+        et = toEdo(t, 'j'),
+        ret = toEdo(t, 'r'),
         // periodic (systematic element name) time
         pt = toPeriodic(h.toString() + m.toString() + s.toString());
 

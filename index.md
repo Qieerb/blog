@@ -13,3 +13,5 @@ layout: home
 <hr>
 
 [Clocks](pages/clocks)
+
+[Dakuten](pages/dakuten)

@@ -20,5 +20,6 @@ layout: post
 <script type="text/javascript">
     document.getElementById('input').placeholder = "The quick brown fox jumps over the lazy dog.\n\n"
                                                   +"Διαφυλάξτε γενικά τη ζωή σας από βαθειά ψυχικά τραύματα.\n\n"
-                                                  +"В чащах юга жил бы цитрус? Да, но фальшивый экземпляр!";
+                                                  +"В чащах юга жил бы цитрус? Да, но фальшивый экземпляр!\n\n"
+                                                  +"Բել դղյակի ձախ ժամն օֆ ազգությանը ցպահանջ չճշտած վնաս էր եւ փառք։";
 </script>

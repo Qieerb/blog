@@ -7,8 +7,10 @@ function tsukeru() {
         // split this into different levels of muriyari?
     var lut = {// English (maybe make this follow latin?)
                'g':'kﾞ', 'z':'sﾞ', 'd':'tﾞ', 'b':'hﾞ', 'p':'hﾟ', 'v':'fﾞ', 'j':'cﾞ', 'ng':'kﾟ',
-               // Greek (modern greek, no h sound)
-               'μπ':'πﾞ', 'ντ':'τﾞ', 'γκ':'κﾞ', 'β':'φﾞ', 'δ':'θﾞ', 'ζ':'σﾞ', 'γ':'χﾞ'},
+               // Greek (modern greek)
+               'μπ':'πﾞ', 'ντ':'τﾞ', 'γκ':'κﾞ', 'β':'φﾞ', 'δ':'θﾞ', 'ζ':'σﾞ', 'γ':'χﾞ',
+               // Cyrillic
+               'б':'пﾞ', 'в':'фﾞ', 'г':'кﾞ', 'д':'тﾞ', 'ж':'шﾞ', 'з':'сﾞ'},
         reg = Object.keys(lut).join('|'),
         matcher = new RegExp(reg, 'gi');
 
@@ -20,5 +22,6 @@ function tsukeru() {
             return lut[k].toUpperCase();
         };
     });
+
     document.getElementById('output').value = output;
 }

@@ -15,3 +15,5 @@ layout: home
 [Clocks](pages/clocks)
 
 [Dakuten](pages/dakuten)
+
+[Hexagonal Grid](pages/hex)

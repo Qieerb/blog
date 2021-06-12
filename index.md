@@ -17,3 +17,5 @@ layout: home
 [Dakuten](pages/dakuten)
 
 [Hexagonal Grid](pages/hex)
+
+[Another Hexagonal Grid](pages/hex2)

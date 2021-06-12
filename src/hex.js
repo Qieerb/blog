@@ -28,7 +28,7 @@ function drawHexagon(x, y){
 
 // draws a grid of u * v hexgons (row * col)
 // x, y is the center of the top-left hexagon
-function drawGrid(u, v, x, y){
+function drawGrid(u, v, x=r+5, y=r+5){
     for (var i=0; i<v; i++){
         for (var j=0; j<u; j++){
             drawHexagon(i*(r+r*cos(a)) + x, (((-1)**(i+1)+1)/2 + 2*j)*r*sin(a) + y);
@@ -36,4 +36,11 @@ function drawGrid(u, v, x, y){
     }
 }
 
-drawGrid(5, 6, r, r);
+function refresh(){
+    var x = document.getElementById('h').value;
+    var y = document.getElementById('w').value;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawGrid(x, y);
+}
+
+drawGrid(5, 7);

@@ -3,7 +3,7 @@ title: Hexagonal Grid
 layout: post
 ---
 
-<strong>A Hex Grid with canvas</strong>
+<strong>A Hex Grid with Canvas</strong>
 
 <form>
     <input id="h" type="number" style="width: 5ch;" min="0" max="99" value="5" onchange="refresh()">

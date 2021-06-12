@@ -1,5 +1,5 @@
 ---
-title: Hexagonal Grid II
+title: Better Hexagonal Grid
 layout: post
 ---
 

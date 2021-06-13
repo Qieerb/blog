@@ -18,4 +18,4 @@ layout: home
 
 [Hexagonal Grid](pages/hex)
 
-[Better Hexagonal Grid](pages/hex2)
+[Hexagonal Grid Pathfinding](pages/hex2)

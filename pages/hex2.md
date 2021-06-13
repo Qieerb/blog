@@ -1,13 +1,15 @@
 ---
-title: Better Hexagonal Grid
+title: Hexagonal Grid Pathfinding
 layout: post
 ---
 
 <strong>Pathfinding on a SVG-base Hexagonal Grid</strong>
 
-Distance between start(blue) and end(green) is: <span id="dist"></span>
+Flying distance from start(blue) to end(green) is: <span id="fly_dist"></span>
 
-<button onclick="calculate()">Calculate</button>
+Walking distance from start(blue) to end(green) is: <span id="walk_dist"></span>
+
+<button id="calc" onclick="calculate()">Calculate</button>
 
 <svg id="grid" viewBox="0 0 500 600" height="500" width="600"></svg>
 
